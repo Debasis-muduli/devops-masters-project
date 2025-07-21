@@ -1,0 +1,14 @@
+buildspec_content   = <<EOF
+version: 0.2
+
+phases:
+  install:
+    commands:
+      - echo Installing...
+  build:
+    commands:
+      - echo Building...
+artifacts:
+  files:
+    - '/*'
+EOF
