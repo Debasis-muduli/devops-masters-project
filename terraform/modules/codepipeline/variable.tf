@@ -1,3 +1,4 @@
+
 variable "project_name" {}
 variable "artifact_bucket" {}
 variable "codepipeline_role_arn" {}

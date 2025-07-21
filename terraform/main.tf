@@ -29,7 +29,12 @@ artifacts:
     - '/*'
 EOF
 }
-
+module "codedeploy" {
+  source             = "./modules/codedeploy"
+  project_name       = var.project_name
+  codedeploy_role_arn = module.iam.codedeploy_role_arn
+  ec2_tag_value      = "DevOps2025-Instance"  # tag must match your EC2 instance Name tag
+}
 
 module "codepipeline" {
   source                  = "./modules/codepipeline"
@@ -39,8 +44,8 @@ module "codepipeline" {
   codebuild_project_name  = module.codebuild.codebuild_project_name
   codedeploy_app_name     = module.codedeploy.codedeploy_app_name
   codedeploy_group_name   = module.codedeploy.deployment_group_name
-  github_owner            = "your-github-username"
-  github_repo             = "your-repo-name"
+  github_owner            = "Debasis-muduli"
+  github_repo             = "devops-masters-project"
   github_branch           = "main"
   github_token            = var.github_token
 }
