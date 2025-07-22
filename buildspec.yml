@@ -5,13 +5,15 @@ phases:
   install:
     commands:
       - echo Installing...
-  build:
+  build:        
     commands:
       - echo Building...
+      - mkdir -p output
+      - echo "hello from build" > output/hello.txt
 
 artifacts:
   files:
-    - '**/*'
+    - output/**/*
 
 post_build:
   commands:
